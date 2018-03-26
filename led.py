@@ -6,24 +6,30 @@ import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7, GPIO.IN)
+
+GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT)
 GPIO.output(11, GPIO.LOW)
 
 root = tkinter.Tk()
 # root.configure(background='black')
 
-statusPin = StringVar()
-# statusPin = IntVar()
 labelFont = ("URW Chancery L", 45, 'bold', 'italic')
+
+statusPin = StringVar()
 labelPin = Label(root, textvariable=statusPin, fg='white', bg='black', font=labelFont)
 labelPin.place(x=70,y=-5)
+
+countPin = IntVar()
+labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=labelFont)
+labelCount.place(x=70,y=-15)
 
 def update():
     global statusPin, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
     if GPIO.input(7) :
         GPIO.output(11,GPIO.HIGH)
         statusPin.set('pin high')
-        # statusPin = statusPin + 1
+        countPin + 1
         print("ON ")
     else :
         GPIO.output(11,GPIO.LOW)
@@ -45,9 +51,10 @@ root.geometry('700x380')
 exitButton  = Button(root, text = "Exit", command = exitProgram, height =2 , width = 6)
 exitButton.pack(side = BOTTOM)
 
-ledButton = Button(root, text = "count pin hight", height = 2, width =8 )
+ledButton = Button(root, text = "COUNT", height = 2, width =8 )
 ledButton.pack()
 
+labelCount.pack()
 labelPin.pack()
 
 update()
