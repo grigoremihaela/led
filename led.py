@@ -22,7 +22,7 @@ labelPin.place(x=70,y=-5)
 
 countPin = IntVar()
 labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=labelFont)
-labelCount.place(x=70,y=-15)
+labelCount.place(x=70,y=-20)
 
 def update():
     global statusPin, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
