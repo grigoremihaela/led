@@ -30,13 +30,13 @@ labelCount.place(x=70,y=-20)
 
 def update():
     global statusPin, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
-    if (GPIO.input(7) and (control == 0)) :
+    if GPIO.input(7) and control == 0 :
         GPIO.output(11,GPIO.HIGH)
         countPin.set(countPin.get() + 1)
         control.set(1)
         statusPin.set('pin high')
         print("ON ")
-    elif (GPIO.input(7) and (control == 1)):
+    elif GPIO.input(7) and control == 1 :
         GPIO.output(11,GPIO.HIGH)
     else :
         GPIO.output(11,GPIO.LOW)
