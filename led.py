@@ -32,7 +32,7 @@ def update():
     global statusPin, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
     if GPIO.input(7) :
         GPIO.output(11,GPIO.HIGH)
-        if control == 0 :
+        if (control == 0) :
             countPin.set(countPin.get() + 1)
             control.set(1)
             statusPin.set('pin high')
