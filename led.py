@@ -1,5 +1,5 @@
 # Library Imports
-# import tkinter
+import tkinter
 from tkinter import *
 #  import sys
 import RPi.GPIO as GPIO
