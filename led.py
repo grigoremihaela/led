@@ -29,7 +29,7 @@ def update():
     if GPIO.input(7) :
         GPIO.output(11,GPIO.HIGH)
         statusPin.set('pin high')
-        countPin.set(countPin + 1)
+        countPin.set(countPin.get() + 1)
         print("ON ")
     else :
         GPIO.output(11,GPIO.LOW)
