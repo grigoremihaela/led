@@ -31,7 +31,7 @@ def update():
         print("OFF ")
     
     root.update()
-    root.after(5, update)
+    root.after(500, update)
 
 def exitProgram():
     print("Exit Button pressed")
