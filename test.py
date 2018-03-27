@@ -24,7 +24,6 @@ labelFont = ("URW Chancery L", 45, 'bold', 'italic')
 statusPin = StringVar()
 control = IntVar()
 countPin = IntVar()
-timeIn = DoubleVar()
 timeStart = datetime.datetime.now()
 timeEnd = datetime.datetime.now()
 
