@@ -23,11 +23,9 @@ labelPin = Label(root, textvariable=statusPin, fg='white', bg='black', font=labe
 labelPin.place(x=70,y=-5)
 
 control = IntVar()
-global control
 control = 0
 
 countPin = IntVar()
-global countPin
 countPin = 0
 labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=labelFont)
 labelCount.place(x=70,y=-20)
@@ -45,7 +43,7 @@ def update():
     else : 
         GPIO.output(11,GPIO.LOW)
         statusPin.set('pin low')
-        control.set(0)
+        control = 0
         print("OFF ")
     
     root.update()
