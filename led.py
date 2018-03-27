@@ -22,22 +22,22 @@ statusPin = StringVar()
 control = IntVar()
 countPin = IntVar()
 timeIn = IntVar()
-timeStart = datetime.now()
-timeEnd = datetime.now()
+timeStart = datetime.now().replace(microsecond=0)
+timeEnd = datetime.now().replace(microsecond=0)
 
 def update():
     global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
     if GPIO.input(7) :
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
-            timeStart = datetime.now()
+            timeStart = datetime.now().replace(microsecond=0)
             countPin.set(countPin.get() + 1)
             control.set(1)                 # has counted
         # else : here the control is 1, so countPin has counted
         GPIO.output(11,GPIO.HIGH)
         statusPin.set('pin high')
         print("ON ") 
-        timeEnd = datetime.now()
+        timeEnd = datetime.now().replace(microsecond=0)
     else : 
         if (control.get() == 1) :
             GPIO.output(11,GPIO.LOW)
@@ -72,7 +72,7 @@ labelPin = Label(root, textvariable=statusPin, fg='white', bg='blue', font=label
 labelPin.place(x=70,y=-5)
 labelPin.pack()
 
-labelTimeStart = Label(root, textvariable=timeStart, fg='black', bg='green', font=labelFont)
+labelTimeStart = Label(root, textvariable=datetime.now().replace(microsecond=0), fg='black', bg='green', font=labelFont)
 labelTimeStart.place(x=70,y=-40)
 labelTimeStart.pack()
 
