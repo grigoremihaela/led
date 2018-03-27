@@ -36,7 +36,7 @@ def update():
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
             timeStart = datetime.datetime.now()
-            x = imeIn.microseconds
+            x = timeIn.microseconds
             timeIn = datetime.timedelta(microseconds=timeIn.microseconds)
             txt.set(timeIn)
             countPin.set(countPin.get() + 1)
