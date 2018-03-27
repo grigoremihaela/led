@@ -33,8 +33,8 @@ def update():
     if GPIO.input(7) :
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
-            # timeIn = datetime.timedelta(microseconds=timeIn.microseconds)
-            txt.set(timeIn.microsecond)
+            timeIn = datetime(timeIn.microseconds)
+            # txt.set(timeIn)
             timeStart = datetime.datetime.now()
             countPin.set(countPin.get() + 1)
             control.set(1)                 # has counted
@@ -110,7 +110,7 @@ labelTimeIn.place(x=70,y=-60)
 labelTimeIn.pack()
 
 fnt = font.Font(family='Helvetica', size=60, weight='bold')
-txt = IntVar()
+txt = StringVar()
 lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground="green", background="black")
 lbl.place(relx=0.5, rely=0.5, anchor=CENTER)
 lbl.pack()
