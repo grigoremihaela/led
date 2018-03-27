@@ -77,13 +77,13 @@ labelCount.pack()
 
 labelPin.pack()
 
-timeStartButton = Button(root, text = timeStart.get(), height = 2, width =30 )
+timeStartButton = Button(root, text = timeStart, height = 2, width =50 )
 timeStartButton.pack()
 
-timeEndButton = Button(root, text = timeEnd.get(), height = 2, width =30 )
+timeEndButton = Button(root, text = timeEnd, height = 2, width =50 )
 timeEndButton.pack()
 
-timeInButton = Button(root, text = timeIn.get(), height = 2, width =30 )
+timeInButton = Button(root, text = timeIn.get(), height = 2, width =50 )
 timeInButton.pack()
 
 update()
