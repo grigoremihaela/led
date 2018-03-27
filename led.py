@@ -4,7 +4,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import font
 import time
-import datetime
+#  import datetime
 from datetime import datetime
 #  import sys
 import RPi.GPIO as GPIO
@@ -102,7 +102,7 @@ def show_time():
     # Trigger the countdown after 1000ms
     root.after(1000, show_time)
 # Set the end date and time for the countdown
-endTime = datetime.datetime(2017, 9, 19, 9, 0, 0)
+endTime = datetime(2017, 9, 19, 9, 0, 0)
 
 fnt = font.Font(family='Helvetica', size=60, weight='bold')
 txt = StringVar()
