@@ -66,7 +66,7 @@ labelCount.pack()
 
 labelPin.pack()
 
-controlButton = Button(root, text = control, height = 2, width =8 )
+controlButton = Button(root, text = control.get(), height = 2, width =8 )
 controlButton.pack()
 
 update()
