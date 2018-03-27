@@ -72,7 +72,7 @@ labelPin = Label(root, textvariable=statusPin, fg='white', bg='blue', font=label
 labelPin.place(x=70,y=-5)
 labelPin.pack()
 
-labelTimeStart = Label(root, textvariable=datetime.now().replace(microsecond=0), fg='black', bg='green', font=labelFont)
+labelTimeStart = Label(root, textvariable=timeStart, fg='black', bg='green', font=labelFont)
 labelTimeStart.place(x=70,y=-40)
 labelTimeStart.pack()
 
