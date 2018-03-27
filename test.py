@@ -54,7 +54,7 @@ def update():
         # statusPin.set('pin low')
         control.set(0)
     
-    root.update()
+     # root.update()
     root.after(0, update)
 
 def exitProgram():
@@ -97,22 +97,6 @@ exitButton.pack(side = BOTTOM)
 labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=labelFont)
 labelCount.place(x=70,y=-20)
 labelCount.pack()
-
-labelPin = Label(root, textvariable=statusPin, fg='white', bg='blue', font=labelFont)
-labelPin.place(x=70,y=-5)
-labelPin.pack()
-
-labelTimeStart = Label(root, textvariable=timeStart, fg='black', bg='green', font=labelFont)
-labelTimeStart.place(x=70,y=-40)
-labelTimeStart.pack()
-
-labelTimeEnd = Label(root, textvariable=timeEnd, fg='black', bg='green', font=labelFont)
-labelTimeEnd.place(x=70,y=-50)
-labelTimeEnd.pack()
-
-labelTimeIn = Label(root, textvariable=timeIn, fg='black', bg='orange', font=labelFont)
-labelTimeIn.place(x=70,y=-60)
-labelTimeIn.pack()
 
 update()
 # mainloop()
