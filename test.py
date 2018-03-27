@@ -25,18 +25,16 @@ statusPin = StringVar()
 control = IntVar()
 countPin = IntVar()
 timeIn = IntVar()
-x = IntVar()
 timeStart = datetime.datetime.now()
 timeEnd = datetime.datetime.now()
 
 def update():
-    global statusPin, countPin, control, timeStart, timeEnd, x, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
+    global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
     if GPIO.input(7) :
         print("ON ") 
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
             timeStart = datetime.datetime.now()
-            x = timeIn.microseconds
             timeIn = datetime.timedelta(microseconds=timeIn.microseconds)
             txt.set(timeIn)
             countPin.set(countPin.get() + 1)
@@ -55,7 +53,7 @@ def update():
         # print("OFF ")
         # statusPin.set('pin low')
         control.set(0)
-    root.after(1, update)
+    root.after(0, update)
 
 def exitProgram():
     print("Exit Button pressed")
@@ -87,9 +85,6 @@ lbl.pack()
 # root.bind("x", quit)
 
 #  root.after(1000, show_time)
-labelTimeIn = Label(root, textvariable=x, fg='black', bg='orange', font=labelFont)
-labelTimeIn.place(x=70,y=-60)
-labelTimeIn.pack()
 
 root.title("Sown")
 root.geometry('700x380')
