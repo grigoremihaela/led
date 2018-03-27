@@ -33,7 +33,7 @@ def update():
     global statusPin, countPin, control, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
     if GPIO.input(7) :
         GPIO.output(11,GPIO.HIGH)
-        statusPin.set('pin high' + control)
+        statusPin.set('pin high')
         print("ON ") 
         if (not control) :
             countPin.set(countPin.get() + 1)
@@ -41,7 +41,7 @@ def update():
         # else : here the control is 1, so countPin has counted
     else : 
         GPIO.output(11,GPIO.LOW)
-        statusPin.set('pin low' + control)
+        statusPin.set('pin low')
         control.set(False)
         print("OFF ")
     
@@ -66,6 +66,9 @@ ledButton.pack()
 labelCount.pack()
 
 labelPin.pack()
+
+controlButton = Button(root, text = control, height = 2, width =8 )
+controlButton.pack()
 
 update()
 # mainloop()
