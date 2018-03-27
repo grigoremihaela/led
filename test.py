@@ -53,7 +53,7 @@ def update():
         # print("OFF ")
         # statusPin.set('pin low')
         control.set(0)
-    root.after(0, update)
+    root.after(1, update)
 
 def exitProgram():
     print("Exit Button pressed")
@@ -96,7 +96,7 @@ labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=lab
 labelCount.place(x=70,y=-20)
 labelCount.pack()
 
-root.after(0, update)
+update()
 # mainloop()
 root.mainloop()
 
