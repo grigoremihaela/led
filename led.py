@@ -16,17 +16,10 @@ GPIO.output(11, GPIO.LOW)
 
 root = tkinter.Tk()
 # root.configure(background='black')
-
 labelFont = ("URW Chancery L", 45, 'bold', 'italic')
-
 statusPin = StringVar()
-
 control = IntVar()
-control.set(0)
-
 countPin = IntVar()
-countPin.set(0)
-
 timeIn = IntVar()
 timeStart = time.time()
 timeEnd = time.time()
@@ -82,15 +75,15 @@ labelPin.place(x=70,y=-5)
 labelPin.pack()
 
 labelTimeStart = Label(root, textvariable=timeStart, fg='black', bg='green', font=labelFont)
-labelTimeStart.place(x=70,y=-20)
+labelTimeStart.place(x=70,y=-30)
 labelTimeStart.pack()
 
 labelTimeEnd = Label(root, textvariable=timeEnd, fg='black', bg='green', font=labelFont)
-labelTimeEnd.place(x=70,y=-20)
+labelTimeEnd.place(x=70,y=-40)
 labelTimeEnd.pack()
 
 labelTimeIn = Label(root, textvariable=timeIn, fg='black', bg='green', font=labelFont)
-labelTimeIn.place(x=70,y=-20)
+labelTimeIn.place(x=70,y=-50)
 labelTimeIn.pack()
 
 update()
