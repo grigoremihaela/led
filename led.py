@@ -3,6 +3,7 @@ import tkinter
 from tkinter import *
 #  import sys
 import time
+from datetime import datetime
 import RPi.GPIO as GPIO
 #set up GPIO using BCM numbering
 #GPIO.setmode(GPIO.BCM)
@@ -21,24 +22,22 @@ statusPin = StringVar()
 control = IntVar()
 countPin = IntVar()
 timeIn = IntVar()
-timeStart = time.time()
-timeEnd = time.time()
+timeStart = datetime.now().replace(microsecond=0)
+timeEnd = datetime.now().replace(microsecond=0)
 
 def update():
     global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
-    timeStart = time.time()
-    timeEnd = time.time()
     if GPIO.input(7) :
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
-            timeStart = time.time()
+            timeStart = datetime.now().replace(microsecond=0)
             countPin.set(countPin.get() + 1)
             control.set(1)                 # has counted
         # else : here the control is 1, so countPin has counted
         GPIO.output(11,GPIO.HIGH)
         statusPin.set('pin high')
         print("ON ") 
-        timeEnd = time.time()
+        timeEnd = datetime.now().replace(microsecond=0)
     else : 
         if (control.get() == 1) :
             GPIO.output(11,GPIO.LOW)
@@ -73,15 +72,15 @@ labelPin = Label(root, textvariable=statusPin, fg='white', bg='blue', font=label
 labelPin.place(x=70,y=-5)
 labelPin.pack()
 
-labelTimeStart = Label(root, textvariable=str(timeStart), fg='black', bg='green', font=labelFont)
+labelTimeStart = Label(root, textvariable=timeStart, fg='black', bg='green', font=labelFont)
 labelTimeStart.place(x=70,y=-40)
 labelTimeStart.pack()
 
-labelTimeEnd = Label(root, textvariable=str(timeEnd), fg='black', bg='green', font=labelFont)
+labelTimeEnd = Label(root, textvariable=timeEnd, fg='black', bg='green', font=labelFont)
 labelTimeEnd.place(x=70,y=-50)
 labelTimeEnd.pack()
 
-labelTimeIn = Label(root, textvariable=timeIn, fg='black', bg='green', font=labelFont)
+labelTimeIn = Label(root, textvariable=timeIn, fg='black', bg='orange', font=labelFont)
 labelTimeIn.place(x=70,y=-60)
 labelTimeIn.pack()
 
