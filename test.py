@@ -24,16 +24,14 @@ labelFont = ("URW Chancery L", 45, 'bold', 'italic')
 statusPin = StringVar()
 control = IntVar()
 countPin = IntVar()
-count = IntVar()
 timeIn = IntVar()
 timeStart = datetime.datetime.now()
 timeEnd = datetime.datetime.now()
 
 def update():
-    global statusPin, countPin, count, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
+    global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
     if GPIO.input(7) :
-        count.set(count.get() + 1)
-        print(count) 
+        print("ON ") 
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
             timeIn = datetime.timedelta(microseconds=timeIn.microseconds)
@@ -42,7 +40,6 @@ def update():
             countPin.set(countPin.get() + 1)
             control.set(1)                 # has counted
             GPIO.output(11,GPIO.HIGH)
-            print("ON ") 
         # else : here the control is 1, so countPin has counted
         # statusPin.set('pin high')
     else : 
@@ -55,7 +52,7 @@ def update():
         # print("OFF ")
         # statusPin.set('pin low')
         control.set(0)
-    # root.update()
+    root.update()
     root.after(0, update)
 
 def exitProgram():
