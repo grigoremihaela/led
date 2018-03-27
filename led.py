@@ -35,7 +35,7 @@ def update():
         GPIO.output(11,GPIO.HIGH)
         statusPin.set('pin high')
         print("ON ") 
-        if control is False :
+        if (not control) :
             countPin.set(countPin.get() + 1)
             control.set(True)                 # has counted
         # else : here the control is 1, so countPin has counted
