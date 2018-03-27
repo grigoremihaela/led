@@ -20,16 +20,12 @@ root = tkinter.Tk()
 labelFont = ("URW Chancery L", 45, 'bold', 'italic')
 
 statusPin = StringVar()
-labelPin = Label(root, textvariable=statusPin, fg='white', bg='black', font=labelFont)
-labelPin.place(x=70,y=-5)
 
 control = IntVar()
 control.set(0)
 
 countPin = IntVar()
 countPin.set(0)
-labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=labelFont)
-labelCount.place(x=70,y=-20)
 
 timeIn = IntVar()
 timeStart = time.time()
@@ -77,18 +73,25 @@ exitButton.pack(side = BOTTOM)
 ledButton = Button(root, text = "COUNT", height = 2, width =8 )
 ledButton.pack()
 
+labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=labelFont)
+labelCount.place(x=70,y=-20)
 labelCount.pack()
 
+labelPin = Label(root, textvariable=statusPin, fg='white', bg='blue', font=labelFont)
+labelPin.place(x=70,y=-5)
 labelPin.pack()
 
-timeStartButton = Button(root, text = timeStart, height = 2, width =50 )
-timeStartButton.pack()
+labelTimeStart = Label(root, textvariable=timeStart, fg='black', bg='green', font=labelFont)
+labelTimeStart.place(x=70,y=-20)
+labelTimeStart.pack()
 
-timeEndButton = Button(root, text = timeEnd, height = 2, width =50 )
-timeEndButton.pack()
+labelTimeEnd = Label(root, textvariable=timeEnd, fg='black', bg='green', font=labelFont)
+labelTimeEnd.place(x=70,y=-20)
+labelTimeEnd.pack()
 
-timeInButton = Button(root, text = timeIn.get(), height = 2, width =50 )
-timeInButton.pack()
+labelTimeIn = Label(root, textvariable=timeIn, fg='black', bg='green', font=labelFont)
+labelTimeIn.place(x=70,y=-20)
+labelTimeIn.pack()
 
 update()
 # mainloop()
