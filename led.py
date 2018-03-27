@@ -33,6 +33,7 @@ labelCount.place(x=70,y=-20)
 
 timeIn = IntVar()
 timeStart = time.time()
+timeEnd = time.time()
 
 def update():
     global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
