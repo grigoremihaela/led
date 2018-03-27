@@ -63,9 +63,6 @@ root.geometry('700x380')
 exitButton  = Button(root, text = "Exit", command = exitProgram, height =2 , width = 6)
 exitButton.pack(side = BOTTOM)
 
-ledButton = Button(root, text = "COUNT", height = 2, width =8 )
-ledButton.pack()
-
 labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=labelFont)
 labelCount.place(x=70,y=-20)
 labelCount.pack()
@@ -74,8 +71,16 @@ labelPin = Label(root, textvariable=statusPin, fg='white', bg='blue', font=label
 labelPin.place(x=70,y=-5)
 labelPin.pack()
 
+labelTimeStart = Label(root, textvariable=timeStart, fg='black', bg='green', font=labelFont)
+labelTimeStart.place(x=70,y=-40)
+labelTimeStart.pack()
+
+labelTimeEnd = Label(root, textvariable=timeEnd, fg='black', bg='green', font=labelFont)
+labelTimeEnd.place(x=70,y=-50)
+labelTimeEnd.pack()
+
 labelTimeIn = Label(root, textvariable=timeIn, fg='black', bg='green', font=labelFont)
-labelTimeIn.place(x=70,y=-45)
+labelTimeIn.place(x=70,y=-60)
 labelTimeIn.pack()
 
 update()
