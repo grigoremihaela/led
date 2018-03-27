@@ -53,7 +53,7 @@ def update():
         # print("OFF ")
         # statusPin.set('pin low')
         control.set(0)
-    root.after(0, update)
+    root.after(1, update)
 
 def exitProgram():
     print("Exit Button pressed")
