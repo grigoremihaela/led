@@ -29,7 +29,7 @@ countPin = IntVar()
 labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=labelFont)
 labelCount.place(x=70,y=-20)
 
-timeIn = time.time()
+timeIn = IntVar()
 
 def update():
     global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
@@ -72,7 +72,7 @@ labelCount.pack()
 
 labelPin.pack()
 
-controlButton = Button(root, text = timeIn, height = 2, width =8 )
+controlButton = Button(root, text = timeIn, height = 2, width =30 )
 controlButton.pack()
 
 update()
