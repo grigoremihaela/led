@@ -2,6 +2,7 @@
 import tkinter
 from tkinter import *
 #  import sys
+import time
 import RPi.GPIO as GPIO
 #set up GPIO using BCM numbering
 #GPIO.setmode(GPIO.BCM)
@@ -29,15 +30,18 @@ labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=lab
 labelCount.place(x=70,y=-20)
 
 def update():
-    global statusPin, countPin, control, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
+    global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
     if GPIO.input(7) :
-        GPIO.output(11,GPIO.HIGH)
-        statusPin.set('pin high')
-        print("ON ") 
         if (control.get() == 0) :
+            timeStart = time.time()
             countPin.set(countPin.get() + 1)
             control.set(1)                 # has counted
         # else : here the control is 1, so countPin has counted
+        GPIO.output(11,GPIO.HIGH)
+        statusPin.set('pin high')
+        print("ON ") 
+        timeEnd = time.time()
+        timeIn = timeEnd - timeStart
     else : 
         GPIO.output(11,GPIO.LOW)
         statusPin.set('pin low')
@@ -66,7 +70,7 @@ labelCount.pack()
 
 labelPin.pack()
 
-controlButton = Button(root, text = control.get(), height = 2, width =8 )
+controlButton = Button(root, text = timeIn.get(), height = 2, width =8 )
 controlButton.pack()
 
 update()
