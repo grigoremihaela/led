@@ -28,9 +28,8 @@ timeIn = IntVar()
 timeStart = datetime.datetime.now()
 timeEnd = datetime.datetime.now()
 
-global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
-
 def update():
+    global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
     if GPIO.input(7) :
         print("ON ") 
         if (control.get() == 0) :
