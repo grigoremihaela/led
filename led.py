@@ -22,8 +22,6 @@ statusPin = StringVar('')
 control = IntVar(value=0)
 countPin = IntVar(value=0)
 timeIn = IntVar(value=0)
-timeStart = DoubleVar()
-timeEnd = DoubleVar()
 timeStart = time.gmtime()
 timeEnd = time.gmtime()
 
