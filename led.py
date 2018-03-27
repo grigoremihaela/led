@@ -19,12 +19,7 @@ GPIO.setup(11, GPIO.OUT)
 GPIO.output(11, GPIO.LOW)
 #  root = tkinter.Tk()
 root = Tk()
-# root.configure(background='black')
-labelFont = ("URW Chancery L", 45, 'bold', 'italic')
-statusPin = StringVar()
-control = IntVar()
-countPin = IntVar()
-timeIn = IntVar()
+
 
 global endTime 
 
