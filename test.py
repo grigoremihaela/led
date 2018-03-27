@@ -77,6 +77,11 @@ def show_time():
 # Set the end date and time for the countdown
 endTime = datetime.datetime(2017, 9, 19, 9, 0, 0)
 
+fnt = font.Font(family='Helvetica', size=60, weight='bold')
+txt = StringVar()
+lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground="green", background="black")
+lbl.place(relx=0.5, rely=0.5, anchor=CENTER)
+lbl.pack()
 # root.attributes("-fullscreen", True)
 # root.configure(background='black')
 # root.bind("x", quit)
@@ -108,12 +113,6 @@ labelTimeEnd.pack()
 labelTimeIn = Label(root, textvariable=timeIn, fg='black', bg='orange', font=labelFont)
 labelTimeIn.place(x=70,y=-60)
 labelTimeIn.pack()
-
-fnt = font.Font(family='Helvetica', size=60, weight='bold')
-txt = StringVar()
-lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground="green", background="black")
-lbl.place(relx=0.5, rely=0.5, anchor=CENTER)
-lbl.pack()
 
 update()
 # mainloop()
