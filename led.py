@@ -3,6 +3,7 @@ import tkinter
 from tkinter import *
 #  import sys
 import time
+from time import gmtime, strftime
 import RPi.GPIO as GPIO
 #set up GPIO using BCM numbering
 #GPIO.setmode(GPIO.BCM)
@@ -21,26 +22,24 @@ statusPin = StringVar('')
 control = IntVar(value=0)
 countPin = IntVar(value=0)
 timeIn = IntVar(value=0)
-timeStart = LongVar()
-timeEnd = LongVar()
-timeStart = time.time()
-timeEnd = time.time()
+timeStart = IntVar()
+timeEnd = IntVar()
+timeStart = time.gmtime()
+timeEnd = time.gmtime()
 
 def update():
     global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
-    timeStart = time.time()
-    timeEnd = time.time()
     if GPIO.input(7) :
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
-            timeStart = time.time()
+            timeStart = time.gmtime()
             countPin.set(countPin.get() + 1)
             control.set(1)                 # has counted
         # else : here the control is 1, so countPin has counted
         GPIO.output(11,GPIO.HIGH)
         statusPin.set('pin high')
         print("ON ") 
-        timeEnd = time.time()
+        timeEnd = time.gmtime()
     else : 
         if (control.get() == 1) :
             GPIO.output(11,GPIO.LOW)
