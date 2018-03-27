@@ -94,7 +94,7 @@ update()
 # mainloop()
 def show_time():
     # Get the time remaining until the event
-    remainder = endTime - datetime.datetime.now()
+    remainder = endTime - datetime.now()
     # remove the microseconds part
     remainder = remainder - datetime.timedelta(microseconds=remainder.microseconds)
     # Show the time left
