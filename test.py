@@ -1,5 +1,4 @@
 #!/usr/bin/python
-
 from tkinter import *
 from tkinter import ttk
 from tkinter import font
@@ -19,7 +18,7 @@ GPIO.setup(7, GPIO.IN)
 GPIO.setup(11, GPIO.OUT)
 GPIO.output(11, GPIO.LOW)
 # Use tkinter lib 
-root = tkinter.Tk()
+root = Tk()
 # root.configure(background='black')
 labelFont = ("URW Chancery L", 45, 'bold', 'italic')
 statusPin = StringVar()
