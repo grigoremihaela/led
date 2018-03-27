@@ -30,7 +30,7 @@ labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=lab
 labelCount.place(x=70,y=-20)
 
 def update():
-    global statusPin, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
+    global statusPin, countPin, control, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
     if GPIO.input(7) :
         GPIO.output(11,GPIO.HIGH)
         statusPin.set('pin high')
