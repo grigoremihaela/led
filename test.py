@@ -77,9 +77,9 @@ endTime = datetime.datetime(2017, 9, 19, 9, 0, 0)
 
 fnt = font.Font(family='Helvetica', size=60, weight='bold')
 txt = StringVar()
-lbl = ttk.Label(root, textvariable=timeIn, font=fnt, foreground="green", background="black")
+lbl = ttk.Label(root, textvariable=timeEnd, font=fnt, foreground="green", background="black")
 lbl.place(relx=0.5, rely=0.5, anchor=CENTER)
-
+lbl.pack()
 # root.attributes("-fullscreen", True)
 # root.configure(background='black')
 # root.bind("x", quit)
