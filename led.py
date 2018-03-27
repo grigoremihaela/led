@@ -23,6 +23,7 @@ labelPin = Label(root, textvariable=statusPin, fg='white', bg='black', font=labe
 labelPin.place(x=70,y=-5)
 
 control = IntVar()
+control.set(0 + 0)
 
 countPin = IntVar()
 labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=labelFont)
