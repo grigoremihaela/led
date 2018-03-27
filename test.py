@@ -34,7 +34,7 @@ def update():
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
             timeIn = datetime.timedelta(microseconds=timeIn.microseconds)
-            txt.set(timeIn)
+            # txt.set(timeIn)
             timeStart = datetime.datetime.now()
             countPin.set(countPin.get() + 1)
             control.set(1)                 # has counted
@@ -79,7 +79,7 @@ endTime = datetime.datetime(2017, 9, 19, 9, 0, 0)
 
 fnt = font.Font(family='Helvetica', size=60, weight='bold')
 txt = StringVar()
-lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground="green", background="black")
+lbl = ttk.Label(root, textvariable=timeIn, font=fnt, foreground="green", background="black")
 lbl.place(relx=0.5, rely=0.5, anchor=CENTER)
 
 # root.attributes("-fullscreen", True)
