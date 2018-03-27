@@ -33,8 +33,9 @@ def update():
     if GPIO.input(7) :
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
-            txt.set(timeIn.microsecond)
+            txt.set(timeIn)
             timeStart = datetime.datetime.now()
+            timeStart = datetime.timedelta(microseconds=timeStart.microseconds)
             countPin.set(countPin.get() + 1)
             control.set(1)                 # has counted
         # else : here the control is 1, so countPin has counted
@@ -42,6 +43,7 @@ def update():
         statusPin.set('pin high')
         print("ON ") 
         timeEnd = datetime.datetime.now()
+        timeEnd = datetime.timedelta(microseconds=timeEnd.microseconds)
     else : 
         if (control.get() == 1) :
             GPIO.output(11,GPIO.LOW)
