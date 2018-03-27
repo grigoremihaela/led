@@ -24,12 +24,15 @@ labelPin = Label(root, textvariable=statusPin, fg='white', bg='black', font=labe
 labelPin.place(x=70,y=-5)
 
 control = IntVar()
+control.set(0)
 
 countPin = IntVar()
+countPin.set(0)
 labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=labelFont)
 labelCount.place(x=70,y=-20)
 
 timeIn = IntVar()
+timeStart = time.time()
 
 def update():
     global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
