@@ -74,16 +74,8 @@ labelPin = Label(root, textvariable=statusPin, fg='white', bg='blue', font=label
 labelPin.place(x=70,y=-5)
 labelPin.pack()
 
-labelTimeStart = Label(root, textvariable=timeStart, fg='black', bg='green', font=labelFont)
-labelTimeStart.place(x=70,y=-30)
-labelTimeStart.pack()
-
-labelTimeEnd = Label(root, textvariable=timeEnd, fg='black', bg='green', font=labelFont)
-labelTimeEnd.place(x=70,y=-40)
-labelTimeEnd.pack()
-
 labelTimeIn = Label(root, textvariable=timeIn, fg='black', bg='green', font=labelFont)
-labelTimeIn.place(x=70,y=-50)
+labelTimeIn.place(x=70,y=-45)
 labelTimeIn.pack()
 
 update()
