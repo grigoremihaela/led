@@ -58,6 +58,16 @@ def update():
     root.update()
     root.after(0, update)
 
+def show_time():
+    # Get the time remaining until the event
+    remainder = endTime - datetime.now()
+    # remove the microseconds part
+    remainder = remainder - datetime.timedelta(microseconds=remainder.microseconds)
+    # Show the time left
+    txt.set(remainder)
+    # Trigger the countdown after 1000ms
+    root.after(1000, show_time)
+
 def exitProgram():
     print("Exit Button pressed")
     GPIO.cleanup()
@@ -91,16 +101,7 @@ labelTimeIn.place(x=70,y=-60)
 labelTimeIn.pack()
 
 update()
-# mainloop()
-def show_time():
-    # Get the time remaining until the event
-    remainder = endTime - datetime.now()
-    # remove the microseconds part
-    remainder = remainder - datetime.timedelta(microseconds=remainder.microseconds)
-    # Show the time left
-    txt.set(remainder)
-    # Trigger the countdown after 1000ms
-    root.after(1000, show_time)
+
 # Set the end date and time for the countdown
 endTime = datetime(2017, 9, 19, 9, 0, 0)
 
@@ -109,6 +110,7 @@ txt = StringVar()
 lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground="green", background="black")
 lbl.place(relx=0.5, rely=0.5, anchor=CENTER)
 
+# mainloop()
 root.mainloop()
 
 
