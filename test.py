@@ -34,7 +34,7 @@ def update():
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
             # timeIn = datetime.timedelta(microseconds=timeIn.microseconds)
-            txt.set(str(timeIn)[20:])  # Millisecond
+            txt.set(timeIn.microsecond)
             timeStart = datetime.datetime.now()
             countPin.set(countPin.get() + 1)
             control.set(1)                 # has counted
