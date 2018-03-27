@@ -33,7 +33,7 @@ def update():
     if GPIO.input(7) :
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
-            txt.set(timeIn)
+            txt.set(timeIn.microsecond)
             timeStart = datetime.datetime.now()
             countPin.set(countPin.get() + 1)
             control.set(1)                 # has counted
