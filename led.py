@@ -26,6 +26,8 @@ timeEnd = time.time()
 
 def update():
     global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
+    timeStart = time.time()
+    timeEnd = time.time()
     if GPIO.input(7) :
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
@@ -71,12 +73,13 @@ labelPin = Label(root, textvariable=statusPin, fg='white', bg='blue', font=label
 labelPin.place(x=70,y=-5)
 labelPin.pack()
 
-ledButton = Button(root, text = timeStart, height = 2, width =8 )
-ledButton.pack()
+labelTimeStart = Label(root, textvariable=timeStart, fg='black', bg='green', font=labelFont)
+labelTimeStart.place(x=70,y=-40)
+labelTimeStart.pack()
 
-ledButton = Button(root, text = timeEnd, height = 2, width =8 )
-ledButton.pack()
-
+labelTimeEnd = Label(root, textvariable=timeEnd, fg='black', bg='green', font=labelFont)
+labelTimeEnd.place(x=70,y=-50)
+labelTimeEnd.pack()
 
 labelTimeIn = Label(root, textvariable=timeIn, fg='black', bg='green', font=labelFont)
 labelTimeIn.place(x=70,y=-60)
