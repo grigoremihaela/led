@@ -21,11 +21,11 @@ statusPin = StringVar()
 control = IntVar()
 countPin = IntVar()
 timeIn = IntVar()
-timeStart = time.time()
-timeEnd = time.time()
 
 def update():
     global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
+    timeStart = time.time()
+    timeEnd = time.time()
     if GPIO.input(7) :
         if (control.get() == 0) :
             timeIn = timeEnd - timeStart
