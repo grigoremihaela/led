@@ -39,7 +39,7 @@ def update():
         statusPin.set('pin high')
         print("ON ") 
         if control == 0 :
-            countPin++
+            countPin.set(countPin.get() + 1)
             control = 1
         # else : here the control is 1, so countPin has counted
     else : 
