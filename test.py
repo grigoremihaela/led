@@ -32,7 +32,7 @@ def update():
     global statusPin, countPin, control, timeStart, timeEnd, timeIn, root # you don't really need to declare these as global because doing it this way gets rid of the ambiguity
     if GPIO.input(7) :
         if (control.get() == 0) :
-            timeIn = timeEnd.microseconds - timeStart.microseconds
+            timeIn = timeEnd - timeStart
             timeIn = datetime.timedelta(microseconds=timeIn.microseconds)
             txt.set(timeIn)
             timeStart = datetime.datetime.now()
