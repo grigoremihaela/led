@@ -40,7 +40,7 @@ def update():
             control.set(1)                 # has counted
         # else : here the control is 1, so countPin has counted
         GPIO.output(11,GPIO.HIGH)
-        statusPin.set('pin high')
+        # statusPin.set('pin high')
         print("ON ") 
         timeEnd = datetime.datetime.now()
     else : 
@@ -51,7 +51,7 @@ def update():
         # GPIO.output(11,GPIO.LOW)
         # statusPin.set('pin low')
         # print("OFF ")
-        statusPin.set('pin low')
+        # statusPin.set('pin low')
         control.set(0)
     
     root.update()
