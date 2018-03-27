@@ -72,7 +72,7 @@ labelCount.pack()
 
 labelPin.pack()
 
-controlButton = Button(root, text = timeIn.get(), height = 2, width =8 )
+controlButton = Button(root, text = timeIn, height = 2, width =8 )
 controlButton.pack()
 
 update()
