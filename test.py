@@ -85,6 +85,10 @@ lbl.pack()
 # root.bind("x", quit)
 
 #  root.after(1000, show_time)
+time = int(round(timeIn * 1000))
+labelTimeIn = Label(root, textvariable=time, fg='black', bg='orange', font=labelFont)
+labelTimeIn.place(x=70,y=-60)
+labelTimeIn.pack()
 
 root.title("Sown")
 root.geometry('700x380')
