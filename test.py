@@ -110,7 +110,7 @@ labelTimeIn.place(x=70,y=-60)
 labelTimeIn.pack()
 
 fnt = font.Font(family='Helvetica', size=60, weight='bold')
-txt = StringVar()
+txt = IntVar()
 lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground="green", background="black")
 lbl.place(relx=0.5, rely=0.5, anchor=CENTER)
 lbl.pack()
