@@ -22,7 +22,6 @@ control = IntVar()
 control.set(0)
 
 countPin = IntVar()
-countPin.set(0)
 labelCount = Label(root, textvariable=countPin, fg='white', bg='black', font=labelFont)
 labelCount.place(x=70,y=-20)
 
