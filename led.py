@@ -45,10 +45,15 @@ def update():
         timeEnd = time.time()
         timeIn = timeEnd - timeStart
     else : 
-        GPIO.output(11,GPIO.LOW)
-        statusPin.set('pin low')
+        if (control.get() == 1) :
+            GPIO.output(11,GPIO.LOW)
+            statusPin.set('pin low')
+            print("OFF ")
+        # else : here the control is 1, so countPin has counted
+        # GPIO.output(11,GPIO.LOW)
+        # statusPin.set('pin low')
+        # print("OFF ")
         control.set(0)
-        print("OFF ")
     
     root.update()
     root.after(0, update)
@@ -72,7 +77,7 @@ labelCount.pack()
 
 labelPin.pack()
 
-controlButton = Button(root, text = timeIn, height = 2, width =30 )
+controlButton = Button(root, text = timeIn.get(), height = 2, width =30 )
 controlButton.pack()
 
 update()
