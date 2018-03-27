@@ -77,14 +77,14 @@ endTime = datetime.datetime(2017, 9, 19, 9, 0, 0)
 
 fnt = font.Font(family='Helvetica', size=60, weight='bold')
 txt = StringVar()
-lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground="green", background="black")
+lbl = ttk.Label(root, textvariable=timeIn, font=fnt, foreground="green", background="black")
 lbl.place(relx=0.5, rely=0.5, anchor=CENTER)
 
 # root.attributes("-fullscreen", True)
 # root.configure(background='black')
 # root.bind("x", quit)
 
-#  root.after(1000, show_time)
+root.after(1000, show_time)
 
 root.title("Sown")
 root.geometry('700x380')
@@ -100,11 +100,11 @@ labelPin = Label(root, textvariable=statusPin, fg='white', bg='blue', font=label
 labelPin.place(x=70,y=-5)
 labelPin.pack()
 
-labelTimeStart = Label(root, textvariable=txt, fg='black', bg='green', font=labelFont)
+labelTimeStart = Label(root, textvariable=timeStart, fg='black', bg='green', font=labelFont)
 labelTimeStart.place(x=70,y=-40)
 labelTimeStart.pack()
 
-labelTimeEnd = Label(root, textvariable=endTime, fg='black', bg='green', font=labelFont)
+labelTimeEnd = Label(root, textvariable=timeEnd, fg='black', bg='green', font=labelFont)
 labelTimeEnd.place(x=70,y=-50)
 labelTimeEnd.pack()
 
